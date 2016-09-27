@@ -212,7 +212,11 @@ def init_dleyna(bus):
     dleyna_object = bus.get_object('com.intel.dleyna-renderer','/com/intel/dLeynaRenderer')
     global manager
     manager = dbus.Interface(dleyna_object,dbus_interface='com.intel.dLeynaRenderer.Manager')
-
+    try:
+        makeRenderers()
+    except:
+        pass
+                        
 
 def makeRenderers(*args, **kwargs):
     obj = manager.GetRenderers()
