@@ -27,6 +27,8 @@ import dbus.service
 import dbus.proxies
 import dbus.mainloop.glib
 
+from time import sleep
+
 global manager
 manager = None
 
@@ -208,10 +210,14 @@ class RenderObject(dbus.service.Object):
 def init_dleyna(bus):
     
     bus.start_service_by_name('com.intel.dleyna-renderer')
-    
+   
+    sleep(3)
+
+   
     dleyna_object = bus.get_object('com.intel.dleyna-renderer','/com/intel/dLeynaRenderer')
     global manager
     manager = dbus.Interface(dleyna_object,dbus_interface='com.intel.dLeynaRenderer.Manager')
+    logger.info("dleyna initialized")
     try:
         makeRenderers()
     except:
