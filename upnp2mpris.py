@@ -54,20 +54,11 @@ class RenderObject(dbus.service.Object):
         self.__deviceIF = get_interface(object_path, DEVICE_IF_NAME)
         
         rendererName = self.__propsIF.Get('com.intel.dLeynaRenderer.RendererDevice','ModelName')
-        dbus_Name = "org.mpris.MediaPlayer2."+rendererName
-        
+        dbus_Name = "org.mpris.MediaPlayer2."+rendererName       
         bus_name = dbus.service.BusName(dbus_Name,bus)
-        # Here the object path
         dbus.service.Object.__init__(self, bus_name, '/org/mpris/MediaPlayer2')
-        bus.add_signal_receiver(self.PChanged, path = self.__path, signal_name = "PropertiesChanged")
-
-        #rendererName = properties_iface.Get('com.intel.dLeynaRenderer.RendererDevice','ModelName')
-        #~ introspect_iface = dbus.Interface(renderer, 'org.freedesktop.DBus.Introspectable')
-        #~ dbus_Name = "org.mpris.MediaPlayer2."+rendererName
-        #~ # Here the service name
-        #~ bus_name = dbus.service.BusName(dbus_Name,bus)
-        #~ # Here the object path
-        #~ dbus.service.Object.__init__(self, bus_name, '/org/mpris/MediaPlayer2')
+        
+        bus.add_signal_receiver(self.emitPropertiesChanged, path = self.__path, signal_name = "PropertiesChanged")
 
 
 
@@ -98,7 +89,7 @@ class RenderObject(dbus.service.Object):
         pass
  
     @dbus.service.method(PROPS_IF_NAME, signature="sa{sv}as")
-    def PChanged(self, interface, changed_properties,
+    def emitPropertiesChanged(self, interface, changed_properties,
                           invalidated_properties):
         self.PropertiesChanged(interface, changed_properties,
                           invalidated_properties)
