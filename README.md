@@ -4,6 +4,7 @@ You can for example control a *KODI* instance runing on a *RPi* from your deskto
 
 Tested with gnome-shell mediaplayer-extension, kde plasma widget and it even works with *KDE-Connect* from a smartphone!
 
+
 It uses *dleyna-renderer* dbus implementation so it's interface is limited to what's available which unfortunately doesn't cover all MPRIS2 DBus specification. 
 Obviously **dleyna-renderer-service** is needed.
 
