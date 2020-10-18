@@ -1,5 +1,5 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+# coding: utf-8
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 #
 
 
-import gobject
+from gi.repository import GLib
 
 import logging
 
@@ -54,7 +54,7 @@ PLAYER_IF_NAME = 'org.mpris.MediaPlayer2.Player'
 
 
 def print_json(props):
-    print json.dumps(props, indent=4, sort_keys=True)
+    print(json.dumps(props, indent=4, sort_keys=True))
 
 def get_interface(path, if_name):
     return dbus.Interface(bus.get_object(RENDERER_BUS, path), if_name)
@@ -91,7 +91,7 @@ class RenderObject(dbus.service.Object):
 
     def interfaces(self):
         for i in self.get_interfaces():
-            print i
+            print(i)
 
 
 
@@ -195,7 +195,7 @@ class RenderObject(dbus.service.Object):
     @dbus.service.method('org.mpris.MediaPlayer2')
     def print_icon(self, mime_type, resolution):
         bytes, mime = self.__deviceIF.GetIcon(mime_type, resolution)
-        print "Icon mime type: " + mime
+        print("Icon mime type: " + mime)
 
 # Push Host methods
     @dbus.service.method('org.mpris.MediaPlayer2')
@@ -265,5 +265,5 @@ if __name__ == '__main__':
     bus.add_signal_receiver(makeRenderers, dbus_interface = 'com.intel.dLeynaRenderer.Manager', signal_name = "FoundRenderer")
     bus.add_signal_receiver(checkRenderers, dbus_interface = 'com.intel.dLeynaRenderer.Manager', signal_name = "LostRenderer")
 
-    loop = gobject.MainLoop()
+    loop = GLib.MainLoop()
     loop.run()
