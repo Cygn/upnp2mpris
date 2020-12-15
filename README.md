@@ -11,7 +11,8 @@ Obviously **dleyna-renderer-service** is needed.
 There is nothing to configure. If your device is visible in the network **upnp2mpris** will pick it up.
 
 ### known issue
-dleyna-renderer-server sometimes hangs. you'll have to kill -9 it.
+- dleyna-renderer-server sometimes hangs. you'll have to kill -9 it.
+- Multiple renderer discovery doesn't work
 
 
 
