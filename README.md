@@ -5,12 +5,12 @@ You can for example control a *KODI* instance runing on a *RPi* from your deskto
 Tested with gnome-shell _Mpris Indicator Button_ extension and it also works with *KDE-Connect* from a smartphone!
 
 
-It uses *dleyna-renderer* dbus implementation so its interface is limited to what's available which unfortunately doesn't cover all MPRIS2 DBus specification. 
+It uses *dleyna-renderer* dbus implementation so its interface is limited to which controls it makes available, which unfortunately doesn't cover all MPRIS2 DBus specification. 
 Obviously **dleyna-renderer-service** is needed.
 
 There is nothing to configure. If your device is visible in the network **upnp2mpris** will pick it up.
 
-### known issue
+### known issues
 - dleyna-renderer-server sometimes hangs. you'll have to kill -9 it.
 - Multiple renderer discovery doesn't work
 
