@@ -1,7 +1,7 @@
 Name:           upnp2mpris
 Version:        1.0
 Release:        1
-Summary:        A script to compress the size of pdf files
+Summary:        a wrapper for UPNP/DLNA renderers in your local network to appear as MPRIS2 compatible DBus objects.
 
 Group:          script
 BuildArch:      noarch
@@ -13,7 +13,7 @@ Packager:       Sinan H <sinan@haliyo.net>
 
 Requires: 	    dleyna-renderer
 
-Summary:         a wrapper for UPNP/DLNA renderers in your local network to appear as MPRIS2 compatible DBus objects.
+Summary:         A wrapper for UPNP/DLNA renderers in your local network to appear as MPRIS2 compatible DBus objects.
 
 %description
 This a wrapper for **UPNP/DLNA** renderers in your local network to appear as **MPRIS2** compatible DBus objects. You can then use most mediacontroller desktop widgets as remotes.
