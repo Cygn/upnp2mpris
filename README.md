@@ -1,4 +1,7 @@
 # upnp2mpris
+
+- Fedora & OpenSuse RPMS at https://copr.fedorainfracloud.org/coprs/cygn/upnp2mpris/
+
 This a wrapper for **UPNP / DLNA** renderers in your local network to appear as **MPRIS2** compatible DBus objects. You can then use most mediacontroller desktop widgets as remotes.
 You can for example control a *KODI* instance runing on a *RPi* from your desktop. It may also provide a control point for *Rygel* if you are using Gnome3 media share feature. 
 
